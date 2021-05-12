@@ -26,16 +26,16 @@ const Navbar = () => {
           <NavbarSearch showOn='large' />
 
           <div className='space-x-2 flex items-center sm:space-x-4 md:flex-1 md:justify-end'>
-            <button type='button' aria-label='toggle cart'>
+            <button type='button' aria-label='Toggle cart'>
               <IconCart className='h-5 w-5 text-gray-800 hover:text-gray-300 cursor-pointer sm:h-7 sm:w-7' />
             </button>
-            <NavbarLink href='#' aria-label='wish list'>
+            <NavbarLink href='#' aria-label='Wish list'>
               <IconHeart className='h-5 w-5 text-gray-800 hover:text-gray-300 cursor-pointer sm:h-7 sm:w-7' />
             </NavbarLink>
             <button
               type='button'
               className='border border-white rounded-full focus:outline-none focus:border-black'
-              aria-label='open sign in form'
+              aria-label='Open sign in form'
             >
               <div className='h-6 w-6 border-2 rounded-full border-white transition duration-150 bg-gradient-to-br from-green-200 via-indigo-400 to-purple-600 focus:outline-none hover:border-black focus:border-black sm:h-8 sm:w-8' />
             </button>
