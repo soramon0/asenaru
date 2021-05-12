@@ -1,10 +1,16 @@
-function Logo() {
+import { SVGProps, VFC } from 'react';
+
+type Props = SVGProps<SVGSVGElement> & {};
+
+const IconLogo: VFC<Props> = (props) => {
   return (
     <svg
       width='32'
       height='32'
       viewBox='0 0 32 32'
-      className='fill-current text-black'
+      className='w-8 h-8'
+      {...props}
+      fill='currentColor'
     >
       <rect width='100%' height='100%' rx='16'></rect>
       <path
@@ -15,6 +21,6 @@ function Logo() {
       ></path>
     </svg>
   );
-}
+};
 
-export default Logo;
+export default IconLogo;

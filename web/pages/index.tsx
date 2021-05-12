@@ -1,17 +1,15 @@
 import Head from 'next/head';
-import Logo from '@/components/Logo';
+import Navbar from '@/components/layout/Navbar';
 
 export default function Home() {
   return (
-    <div>
+    <div className='bg-gray-50 h-screen'>
       <Head>
         <title>Asenaru</title>
         <meta name='description' content='A versatile shop' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-
-      <Logo />
-      <h1>Comming Soon!</h1>
+      <Navbar />
     </div>
   );
 }
