@@ -9,6 +9,7 @@ const IconCart: VFC<Props> = (props) => {
       fill='none'
       viewBox='0 0 24 24'
       stroke='currentColor'
+      aria-hidden='true'
       {...props}
     >
       <path

@@ -9,8 +9,9 @@ const IconLogo: VFC<Props> = (props) => {
       height='32'
       viewBox='0 0 32 32'
       className='w-8 h-8'
-      {...props}
       fill='currentColor'
+      aria-hidden='true'
+      {...props}
     >
       <rect width='100%' height='100%' rx='16'></rect>
       <path
