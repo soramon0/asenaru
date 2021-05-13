@@ -17,11 +17,11 @@ const NavbarSearch: FC<Props> = ({ showOn }) => {
     <div
       className={`relative md:-mr-10 ${showOn === 'large' ? onLarge : onSmall}`}
     >
-      <label className='hidden' htmlFor='search'>
+      <label className='hidden' htmlFor='navbarSearch'>
         {t('searchLabel')}
       </label>
       <input
-        id='search'
+        id='navbarSearch'
         name='search'
         className='bg-gray-100 w-full py-2 pl-2 pr-7 focus:outline-none focus:ring-4 focus:ring-gray-300 focus:ring-opacity-50'
         type='search'

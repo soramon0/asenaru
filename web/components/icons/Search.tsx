@@ -7,6 +7,8 @@ const IconSearch: VFC<Props> = (props) => {
     <svg
       className='h-5 w-5'
       viewBox='0 0 20 20'
+      width='24'
+      height='24'
       fill='currentColor'
       aria-hidden='true'
       {...props}
