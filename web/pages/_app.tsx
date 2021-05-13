@@ -3,6 +3,8 @@ import { useRouter } from 'next/router';
 import { Formats, NextIntlProvider } from 'next-intl';
 
 import '../styles/globals.css';
+import { ThemeProvider } from '@/lib/theme';
+import Page from '@/components/layout/Page';
 
 const formats: Partial<Formats> = {
   dateTime: {
@@ -26,7 +28,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       // TODO(soramon0): add server timezone
       // timeZone="Austria/Vienna"
     >
-      <Component {...pageProps} />
+      <ThemeProvider>
+        <Page>
+          <Component {...pageProps} />
+        </Page>
+      </ThemeProvider>
     </NextIntlProvider>
   );
 }
