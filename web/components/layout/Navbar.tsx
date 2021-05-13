@@ -11,7 +11,7 @@ const Navbar = () => {
   const t = useTranslations('Navigation');
 
   return (
-    <header className='p-4 bg-white sm:p-5'>
+    <header className='p-4 bg-primary sm:p-5'>
       <div className='max-w-screen-2xl mx-auto space-y-4'>
         <nav className='flex justify-between items-center'>
           <div className='flex items-center space-x-4 md:flex-1'>
@@ -30,19 +30,19 @@ const Navbar = () => {
 
           <NavbarSearch showOn='large' />
 
-          <div className='space-x-2 flex items-center sm:space-x-4 md:flex-1 md:justify-end'>
+          <div className='space-x-3 flex items-center sm:space-x-4 md:flex-1 md:justify-end'>
             <button type='button' aria-label={t('cartAriaLabel').toString()}>
-              <IconCart className='h-7 w-7 text-gray-800 hover:text-gray-300 cursor-pointer' />
+              <IconCart className='h-7 w-7 text-primary hover:text-accents-6 cursor-pointer' />
             </button>
             <NavbarLink href='#' aria-label={t('wishlist').toString()}>
-              <IconHeart className='h-7 w-7 text-gray-800 hover:text-gray-300 cursor-pointer' />
+              <IconHeart className='h-7 w-7 text-primary hover:text-accents-6 cursor-pointer' />
             </NavbarLink>
             <button
               type='button'
-              className='border border-white rounded-full focus:outline-none focus:border-black'
+              className='border border-primary rounded-full focus:outline-none focus:border-secondary'
               aria-label={t('modalAriaLabel').toString()}
             >
-              <div className='h-8 w-8 border-2 rounded-full border-white transition duration-150 bg-gradient-to-br from-green-200 via-indigo-400 to-purple-600 focus:outline-none hover:border-black focus:border-black' />
+              <div className='h-8 w-8 border-2 border-primary rounded-full transition duration-150 bg-gradient-to-br from-cyan to-violet-light focus:outline-none hover:border-secondary focus:border-secondary' />
             </button>
           </div>
         </nav>

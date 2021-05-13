@@ -23,11 +23,11 @@ const NavbarSearch: FC<Props> = ({ showOn }) => {
       <input
         id='navbarSearch'
         name='search'
-        className='bg-gray-100 w-full py-2 pl-2 pr-7 focus:outline-none focus:ring-4 focus:ring-gray-300 focus:ring-opacity-50'
+        className='bg-accents-1 w-full py-2 pl-2 pr-7 focus:outline-none focus:ring-4 focus:ring-accents-2 focus:ring-opacity-10'
         type='search'
         placeholder={t('searchPlaceholder').toString()}
       />
-      <IconSearch className='w-5 h-5 absolute right-2 top-0 transform translate-y-1/2' />
+      <IconSearch className='w-5 h-5 absolute right-3 top-0 transform translate-y-1/2' />
     </div>
   );
 };

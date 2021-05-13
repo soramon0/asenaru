@@ -12,7 +12,7 @@ const NavbarLink: FC<Props> = ({ href, children, ...props }) => {
   return (
     <Link href={href}>
       <a
-        className='text-gray-500 font-medium hover:text-gray-900 transition-colors duration-75 ease-out'
+        className='text-accents-6 font-medium hover:text-primary transition-colors duration-75 ease-out'
         {...props}
       >
         {children}

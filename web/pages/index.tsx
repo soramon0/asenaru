@@ -9,13 +9,18 @@ export default function Home() {
   const t = useTranslations('Index');
 
   return (
-    <div className='bg-gray-50 h-screen'>
+    <div className='bg-primary-2 h-screen'>
       <Head>
         <title>Asenaru - {t('title')}</title>
         <meta name='description' content={t('meta.description').toString()} />
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Navbar />
+      <main className='p-8 mt-8'>
+        <h1 className='text-4xl text-center text-cyan font-semibold'>
+          Comming Soon!
+        </h1>
+      </main>
     </div>
   );
 }
