@@ -1,0 +1,14 @@
+{
+	"Navigation": {
+		"index": "Home",
+    "all": "All",
+		"clothes": "Clothes",
+		"accessories": "Accessories",
+		"shoes": "Shoes",
+		"searchPlaceholder": "Search for products",
+		"searchLabel": "Search",
+		"cartAriaLabel": "Toggle cart",
+		"wishlist": "Wishlist",
+		"modalAriaLabel": "Open sign in form"
+	}
+}

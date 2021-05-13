@@ -1,0 +1,14 @@
+{
+	"Navigation": {
+		"index": "Accueil",
+    "all": "Toute",
+		"clothes": "Vêtements",
+		"accessories": "Accessoires",
+		"shoes": "Chaussures",
+		"searchPlaceholder": "Rechercher des produits",
+		"searchLabel": "Rechercher",
+		"cartAriaLabel": "Basculer le panier",
+		"wishlist": "Liste de souhaits",
+		"modalAriaLabel": "Ouvrir le formulaire de connexion"
+	}
+}
