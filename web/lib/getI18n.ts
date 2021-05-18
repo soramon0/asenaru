@@ -1,4 +1,6 @@
-export default function getI18n(page: string, locale?: string) {
+const defaultLangugae = 'en'
+
+export default function getI18n(page: string, locale = defaultLangugae) {
 	return {
 		messages: {
 			...require(`../i18n/${page}/${locale}.json`),

@@ -16,7 +16,7 @@ export default function Home() {
       </Head>
       <main className='h-72 p-8 bg-primary-2 dark:bg-secondary-2'>
         <h1 className='text-4xl font-semibold text-center text-primary dark:text-primary-2'>
-          Comming Soon!
+          Coming Soon!
         </h1>
       </main>
     </>
