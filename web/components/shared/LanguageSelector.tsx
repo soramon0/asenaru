@@ -12,12 +12,6 @@ const LanguageSelector = () => {
     setShow(!show);
   };
 
-  const onEscapeCloseDropdown = (e: KeyboardEvent) => {
-    if (e.code === 'Escape') {
-      setShow(false);
-    }
-  };
-
   const selectLanguage = (language: string) => {
     if (language === locale) {
       toggleDropDown();
@@ -28,6 +22,19 @@ const LanguageSelector = () => {
     window.location.href = pathname;
   };
 
+  const onEscapeCloseDropdown = (e: KeyboardEvent) => {
+    if (e.code === 'Escape') {
+      setShow(false);
+    }
+  };
+
+  function onOutsideClickCloseDropdown() {
+    // TODO(soramon0): dont close if we click inside the dropdown
+    if (show) {
+      toggleDropDown();
+    }
+  }
+
   useEffect(() => {
     document.addEventListener('keydown', onEscapeCloseDropdown);
     return () => {
@@ -35,17 +42,27 @@ const LanguageSelector = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (show) {
+      document.addEventListener('click', onOutsideClickCloseDropdown);
+    }
+
+    return () => {
+      document.removeEventListener('click', onOutsideClickCloseDropdown);
+    };
+  }, [show]);
+
   return (
     <div className='relative text-left rounded-md'>
-      <label className='sr-only' id='changeLanguageLabel'>
+      <label className='sr-only' id='languageSelectorLabel'>
         Change site language
       </label>
       <button
         type='button'
         className='w-full px-4 py-2 flex items-center justify-center space-x-3 text-sm font-medium rounded-md border border-accents-6 shadow-sm bg-primary text-accents-9 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500'
-        id='menu-button'
+        id='languageSelector'
         aria-haspopup='listbox'
-        aria-labelledby='changeLanguageLabel'
+        aria-labelledby='languageSelectorLabel'
         onClick={toggleDropDown}
       >
         <span>Options</span>
@@ -54,6 +71,7 @@ const LanguageSelector = () => {
 
       {show && (
         <ul
+          id='languageSelectorMenu'
           className='w-40 mt-2 absolute right-0 lowercase shadow-md border border-accents-2 bg-primary'
           role='listbox'
           aria-expanded={show}
