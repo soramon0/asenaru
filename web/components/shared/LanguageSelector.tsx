@@ -15,6 +15,8 @@ const LanguageSelector = () => {
   const escapePress = useKeyPress('Escape');
   const downPress = useKeyPress('ArrowDown', true);
   const upPress = useKeyPress('ArrowUp', true);
+  const enterPress = useKeyPress('Enter');
+  const spacePress = useKeyPress(' ');
 
   const toggleDropDown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -70,6 +72,18 @@ const LanguageSelector = () => {
   useEffect(() => {
     itemRef.current[selectedItem]?.focus();
   }, [selectedItem]);
+
+  useEffect(() => {
+    if (dropdownOpen && (enterPress || spacePress)) {
+      const item = itemRef.current[selectedItem];
+      if (!item) return;
+
+      const language = item.textContent;
+      if (!language) return;
+
+      selectLanguage(language);
+    }
+  }, [enterPress, spacePress]);
 
   useEffect(() => {
     function onOutsideClickCloseDropdown() {
