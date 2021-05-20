@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 
 import Dropdown from '@/components/shared/Dropdown';
+import IconFlag from '@/components/icons/Flag';
 
 const LanguageSelector = () => {
   const { locales, locale, pathname } = useRouter();
@@ -18,7 +19,7 @@ const LanguageSelector = () => {
   return (
     <Dropdown
       items={locales || []}
-      label={locale || 'Options'}
+      label={<IconFlag flag={locale || 'en'} />}
       onSelect={selectLanguage}
       selectorLabel='Change site language'
     />

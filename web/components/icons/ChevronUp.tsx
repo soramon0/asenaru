@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IconChevronDown = () => {
+const IconChevronUp = () => {
   return (
     <svg
       className='-mr-1 ml-2 h-5 w-5'
@@ -14,10 +14,10 @@ const IconChevronDown = () => {
         strokeLinecap='round'
         strokeLinejoin='round'
         strokeWidth={2}
-        d='M19 9l-7 7-7-7'
+        d='M5 15l7-7 7 7'
       />
     </svg>
   );
 };
 
-export default IconChevronDown;
+export default IconChevronUp;

@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 
 import IconChevronDown from '@/components/icons/ChevronDown';
+import IconChevronUp from '@/components/icons/ChevronUp';
 import useKeyPress from '@/lib/useKeyPress';
 
 interface Props {
   items: string[];
-  label: string;
+  label: string | React.ReactNode;
   icon?: React.ReactNode;
   selectorLabel: string;
   onSelect: (item: string) => void;
@@ -133,7 +134,8 @@ const Dropdown: React.VFC<Props> = ({
         onClick={toggleDropDown}
       >
         <span>{label}</span>
-        {icon ? icon : <IconChevronDown />}
+        {icon && icon}
+        {!icon && dropdownOpen ? <IconChevronDown /> : <IconChevronUp />}
       </button>
 
       {dropdownOpen && (
