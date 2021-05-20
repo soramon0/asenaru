@@ -55,8 +55,8 @@ const Footer = () => {
           </a>
         </Link>
 
-        <LanguageSelector />
         <button onClick={toggleMode}>Toggle dark mode</button>
+        <LanguageSelector />
       </div>
     </footer>
   );
