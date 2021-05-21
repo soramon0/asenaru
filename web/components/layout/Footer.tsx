@@ -1,14 +1,13 @@
 import Link from 'next/link';
 import { useTranslations } from 'use-intl';
 
-import useTheme from '@/lib/theme';
 import IconLogo from '@/components/icons/Logo';
 import IconGithub from '@/components/icons/Github';
+import DarkModeSwitch from '@/components/shared/DarkModeSwitch';
 import LanguageSelector from '@/components/shared/LanguageSelector';
 
 const Footer = () => {
   const t = useTranslations('Navigation');
-  const { toggleMode } = useTheme();
 
   return (
     <footer className='px-4 py-6 space-y-8 bg-primary'>
@@ -54,8 +53,7 @@ const Footer = () => {
             <IconGithub />
           </a>
         </Link>
-
-        <button onClick={toggleMode}>Toggle dark mode</button>
+        <DarkModeSwitch />
         <LanguageSelector />
       </div>
     </footer>

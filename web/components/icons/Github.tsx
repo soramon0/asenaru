@@ -5,7 +5,7 @@ type Props = SVGProps<SVGSVGElement> & {};
 const IconGithub: VFC<Props> = (props) => {
   return (
     <svg
-      className='h-7 w-7 cursor-pointer text-primary hover:text-accents-6 dark:text-accents-9 dark:hover:text-accents-1'
+      className='h-8 w-8 cursor-pointer text-primary hover:text-accents-6 dark:text-primary dark:hover:text-accents-9'
       fill='none'
       width='24'
       height='24'
@@ -22,5 +22,6 @@ const IconGithub: VFC<Props> = (props) => {
     </svg>
   );
 };
+// className='h-7 w-7 cursor-pointer text-accents-2 hover:text-accents-6 dark:text-accents-4 dark:hover:text-accents-1'
 
 export default IconGithub;
