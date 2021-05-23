@@ -141,7 +141,7 @@ const Dropdown: React.VFC<Props> = ({
       {dropdownOpen && (
         <ul
           id='selectorMenu'
-          className='w-40 mt-2 absolute right-0 lowercase shadow-md border border-accents-2 bg-primary'
+          className='w-40 mt-2 absolute right-0 lowercase shadow-magical border border-accents-2 bg-primary'
           role='listbox'
           aria-expanded={dropdownOpen}
         >
