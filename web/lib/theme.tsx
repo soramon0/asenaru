@@ -1,10 +1,9 @@
-import { createContext, useContext, useMemo, useState } from 'react';
+import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 type mode = 'light' | 'dark';
 
 interface Context {
   mode: mode;
-  setMode(mode: mode): void;
   toggleMode(): void;
 }
 
@@ -23,12 +22,18 @@ export default function useTheme() {
 export const ThemeProvider: React.FC = ({ children }) => {
   const [mode, setMode] = useState<mode>('light');
 
+  useEffect(() => {
+    const themeMode = localStorage.getItem('themeMode');
+    if (themeMode == 'light' || themeMode == 'dark') setMode(themeMode);
+    else setMode('light');
+  }, []);
+
   const value = useMemo(
     () => ({
       mode,
-      setMode,
       toggleMode() {
         const newMode: mode = mode === 'light' ? 'dark' : 'light';
+        localStorage.setItem('themeMode', newMode);
         setMode(newMode);
       },
     }),
