@@ -32,7 +32,7 @@ export const ThemeProvider: React.FC = ({ children }) => {
     () => ({
       mode,
       toggleMode() {
-        const newMode: Mode = mode === 'light' ? 'dark' : 'light';
+        const newMode = mode === 'light' ? 'dark' : 'light';
         localStorage.setItem('themeMode', newMode);
         setMode(newMode);
       },
