@@ -11,7 +11,7 @@ const Navbar = () => {
   const t = useTranslations('Navigation');
 
   return (
-    <header className='p-4 bg-primary dark:bg-accents-9 sm:p-5'>
+    <header className='w-full p-4 bg-primary fixed z-10 dark:bg-accents-9 sm:p-5'>
       <div className='max-w-screen-2xl mx-auto space-y-4'>
         <nav className='flex justify-between items-center'>
           <div className='flex items-center space-x-4 md:flex-1'>

@@ -7,6 +7,10 @@ import IconFlag from '@/components/icons/Flag';
 const LanguageSelector = () => {
   const { locales, locale, pathname } = useRouter();
 
+  const languages = locales?.map((locale) =>
+    locale === 'en' ? 'English' : 'French'
+  );
+
   const selectLanguage = (language: string) => {
     if (language === locale) {
       return;
@@ -18,7 +22,7 @@ const LanguageSelector = () => {
 
   return (
     <Dropdown
-      items={locales || []}
+      items={languages || []}
       label={<IconFlag flag={locale || 'en'} />}
       onSelect={selectLanguage}
       selectorLabel='Change site language'

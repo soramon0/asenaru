@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import IconChevronDown from '@/components/icons/ChevronDown';
 import IconChevronUp from '@/components/icons/ChevronUp';
+import IconClose from '@/components/icons/Close';
 import useKeyPress from '@/lib/useKeyPress';
 
 interface Props {
@@ -141,13 +142,21 @@ const Dropdown: React.VFC<Props> = ({
       {dropdownOpen && (
         <ul
           id='selectorMenu'
-          className='w-40 mt-2 absolute right-0 lowercase shadow-magical border border-accents-2 bg-primary'
+          className='w-full h-full fixed mt-28 inset-0 lowercase shadow-magical border border-accents-2 bg-primary md:w-40 md:h-auto md:mt-3 md:absolute md:inset-auto md:right-0'
           role='listbox'
           aria-expanded={dropdownOpen}
         >
+          <li className='mt-1 px-4 py-2 text-right md:hidden'>
+            <label className='sr-only' id='selectorCloser'>
+              Close Dropdown
+            </label>
+            <button onClick={toggleDropDown} aria-labelledby='selectorCloser'>
+              <IconClose />
+            </button>
+          </li>
           {items.map((item, i) => (
             <li
-              className='px-4 py-2 cursor-pointer hover:bg-accents-1 focus:outline-none focus:bg-accents-1'
+              className='px-4 py-2 capitalize font-medium cursor-pointer hover:bg-accents-1 focus:outline-none focus:bg-accents-1'
               key={item + i}
               role='option'
               tabIndex={0}
