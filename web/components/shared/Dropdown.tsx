@@ -129,7 +129,7 @@ const Dropdown: React.VFC<Props> = ({
       </label>
       <button
         type='button'
-        className='w-full px-4 py-2 flex items-center justify-center space-x-3 text-sm font-medium rounded-md border border-accents-6 shadow-sm bg-primary text-accents-9 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500'
+        className='w-full px-4 py-2 flex items-center justify-center space-x-3 text-sm font-medium rounded-md border border-accents-6 shadow-sm bg-primary text-accents-9 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 dark:bg-accents-7'
         id='selector'
         aria-haspopup='listbox'
         aria-labelledby='selectorLabel'
@@ -143,7 +143,7 @@ const Dropdown: React.VFC<Props> = ({
       {dropdownOpen && (
         <ul
           id='selectorMenu'
-          className='w-full h-full fixed mt-28 inset-0 lowercase shadow-magical border border-accents-2 bg-primary md:w-40 md:h-auto md:mt-3 md:absolute md:inset-auto md:right-0'
+          className='w-full py-1 h-full fixed mt-28 inset-0 lowercase shadow-magical border border-accents-2 bg-primary md:w-40 md:h-auto md:mt-3 md:absolute md:inset-auto md:right-0 dark:bg-accents-8 dark:border-accents-5'
           role='listbox'
           aria-expanded={dropdownOpen}
         >
@@ -157,7 +157,7 @@ const Dropdown: React.VFC<Props> = ({
           </li>
           {items.map((item, i) => (
             <li
-              className='px-4 py-2 capitalize font-medium cursor-pointer hover:bg-accents-1 focus:outline-none focus:bg-accents-1'
+              className='px-4 py-2 capitalize font-medium tracking-wide cursor-pointer hover:bg-accents-1 focus:outline-none focus:bg-accents-1 dark:text-accents-3 dark:hover:bg-accents-7 dark:focus:bg-accents-7'
               key={item.value + i}
               role='option'
               tabIndex={0}

@@ -12,7 +12,7 @@ const DarkModeSwitch = () => {
       </label>
       <button
         onClick={toggleMode}
-        className='p-1 bg-accents-8 border border-accents-2 rounded-full transition duration-150 hover:border-accents-9 focus:outline-none focus:border-accents-9 dark:border-accents-4 dark:hover:border-primary'
+        className='p-1 bg-accents-7 rounded-full transition duration-150 focus:outline-none focus:ring-2 focus:ring-secondary dark:focus:ring-primary'
         aria-labelledby='darkModeLabel'
       >
         {mode === 'light' ? <IconMoon /> : <IconSun />}

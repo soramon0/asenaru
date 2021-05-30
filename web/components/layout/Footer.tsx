@@ -11,7 +11,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className='px-6 bg-primary'>
+    <footer className='px-6 bg-primary dark:bg-accents-9'>
       <div className='space-y-8 py-12 md:space-y-0 md:flex'>
         <div className='space-y-8 md:space-y-0 md:flex md:flex-1 md:justify-between md:items-start'>
           <div className='flex items-center space-x-3'>
@@ -20,32 +20,34 @@ const Footer = () => {
                 <IconLogo />
               </a>
             </Link>
-            <span className='font-semibold uppercase'>Asenaru</span>
+            <span className='font-semibold uppercase dark:text-accents-2 dark:hover:text-accents-3'>
+              Asenaru
+            </span>
           </div>
 
           <ul className='flex flex-col space-y-3'>
-            <li className='hover:text-accents-6'>
+            <li className='hover:text-accents-6 dark:text-accents-4 dark:hover:text-accents-3'>
               <Link href='/'>{t('index')}</Link>
             </li>
-            <li className='hover:text-accents-6'>
+            <li className='hover:text-accents-6 dark:text-accents-2 dark:hover:text-accents-3'>
               <Link href='#'>Careers</Link>
             </li>
-            <li className='hover:text-accents-6'>
+            <li className='hover:text-accents-6 dark:text-accents-2 dark:hover:text-accents-3'>
               <Link href='#'>Blog</Link>
             </li>
-            <li className='hover:text-accents-6'>
+            <li className='hover:text-accents-6 dark:text-accents-2 dark:hover:text-accents-3'>
               <Link href='#'>About</Link>
             </li>
           </ul>
 
           <ul className='flex flex-col space-y-3'>
-            <li className='hover:text-accents-6'>
+            <li className='hover:text-accents-6 dark:text-accents-2 dark:hover:text-accents-3'>
               <Link href='#'>Terms of use</Link>
             </li>
-            <li className='hover:text-accents-6'>
+            <li className='hover:text-accents-6 dark:text-accents-2 dark:hover:text-accents-3'>
               <Link href='#'>Shipping &amp; Returns</Link>
             </li>
-            <li className='hover:text-accents-6'>
+            <li className='hover:text-accents-6 dark:text-accents-2 dark:hover:text-accents-3'>
               <Link href='#'>Privacy Policy</Link>
             </li>
           </ul>
@@ -62,7 +64,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <p className='text-center -mt-6 py-12 border-t'>
+      <p className='text-center -mt-6 py-12 border-t dark:text-accents-2 dark:border-accents-6'>
         &copy; {currentYear} Sora.mon0, Inc. All rights reserved
       </p>
     </footer>

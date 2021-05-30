@@ -5,7 +5,7 @@ type Props = SVGProps<SVGSVGElement> & {};
 const IconSun: React.VFC<Props> = (props) => {
   return (
     <svg
-      className='h-7 w-7 cursor-pointer text-accents-9 hover:text-accents-6 dark:text-accents-4 dark:hover:text-accents-1'
+      className='h-7 w-7 cursor-pointer text-accents-2 hover:text-accents-6 dark:text-accents-4 dark:hover:text-accents-1'
       fill='none'
       viewBox='0 0 24 24'
       width='24'
