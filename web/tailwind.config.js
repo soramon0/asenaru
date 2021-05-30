@@ -2,7 +2,6 @@ module.exports = {
   // mode: "jit",
   purge: {
     enabled: true,
-    // preserveHtmlElements: false,
     content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
     options: {
       safelist: ['dark']
