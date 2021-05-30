@@ -8,7 +8,9 @@ const Page: React.FC = ({ children }) => {
   return (
     <div className={mode}>
       <Navbar />
-      {children}
+      <main className='mt-20 p-8 bg-primary-2 dark:bg-secondary-2'>
+        {children}
+      </main>
       <Footer />
     </div>
   );

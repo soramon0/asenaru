@@ -14,11 +14,11 @@ export default function Home() {
         <meta name='description' content={t('meta.description').toString()} />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main className='h-72 p-8 bg-primary-2 dark:bg-secondary-2'>
+      <section className='h-72'>
         <h1 className='text-4xl font-semibold text-center text-primary dark:text-primary-2'>
           Coming Soon!
         </h1>
-      </main>
+      </section>
     </>
   );
 }
