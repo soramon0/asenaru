@@ -8,7 +8,9 @@ const LanguageSelector = () => {
   const { locales, locale, pathname } = useRouter();
 
   const languages = locales?.map((locale) =>
-    locale === 'en' ? 'English' : 'French'
+    locale === 'en'
+      ? { value: locale, label: 'English' }
+      : { value: locale, label: 'French' }
   );
 
   const selectLanguage = (language: string) => {

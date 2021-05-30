@@ -5,14 +5,15 @@ import IconChevronUp from '@/components/icons/ChevronUp';
 import IconClose from '@/components/icons/Close';
 import useKeyPress from '@/lib/useKeyPress';
 
+type Item = { value: string; label: string };
+type ItemRef = { [key: number]: HTMLLIElement | null };
 interface Props {
-  items: string[];
+  items: Item[];
   label: string | React.ReactNode;
   icon?: React.ReactNode;
   selectorLabel: string;
   onSelect: (item: string) => void;
 }
-type ItemRef = { [key: number]: HTMLLIElement | null };
 
 const Dropdown: React.VFC<Props> = ({
   items,
@@ -88,7 +89,7 @@ const Dropdown: React.VFC<Props> = ({
         const activeElement = document.activeElement;
 
         if (activeElement?.parentElement?.id == 'selectorMenu') {
-          const text = activeElement.textContent;
+          const text = activeElement.getAttribute('data-locale');
           if (!text) return;
 
           select(text);
@@ -97,7 +98,7 @@ const Dropdown: React.VFC<Props> = ({
         return;
       }
 
-      const text = item.textContent;
+      const text = item.dataset.locale;
       if (!text) return;
 
       select(text);
@@ -157,13 +158,14 @@ const Dropdown: React.VFC<Props> = ({
           {items.map((item, i) => (
             <li
               className='px-4 py-2 capitalize font-medium cursor-pointer hover:bg-accents-1 focus:outline-none focus:bg-accents-1'
-              key={item + i}
+              key={item.value + i}
               role='option'
               tabIndex={0}
-              onClick={() => select(item)}
+              onClick={() => select(item.value)}
               ref={(el) => (itemRef.current[i] = el)}
+              data-locale={item.value}
             >
-              {item}
+              {item.label}
             </li>
           ))}
         </ul>
