@@ -7,7 +7,7 @@ import DarkModeSwitch from '@/components/shared/DarkModeSwitch';
 import LanguageSelector from '@/components/shared/LanguageSelector';
 
 const Footer = () => {
-  const t = useTranslations('Navigation');
+  const t = useTranslations('Footer');
   const currentYear = new Date().getFullYear();
 
   return (
@@ -16,7 +16,7 @@ const Footer = () => {
         <div className='space-y-8 md:space-y-0 md:flex md:flex-1 md:justify-between md:items-start'>
           <div className='flex items-center space-x-3'>
             <Link href='/'>
-              <a aria-label={t('index').toString()}>
+              <a aria-label={t('home').toString()}>
                 <IconLogo />
               </a>
             </Link>
@@ -27,35 +27,35 @@ const Footer = () => {
 
           <ul className='flex flex-col space-y-3'>
             <li className='hover:text-accents-6 dark:text-accents-4 dark:hover:text-accents-3'>
-              <Link href='/'>{t('index')}</Link>
+              <Link href='/'>{t('home')}</Link>
             </li>
             <li className='hover:text-accents-6 dark:text-accents-2 dark:hover:text-accents-3'>
-              <Link href='#'>Careers</Link>
+              <Link href='#'>{t('careers')}</Link>
             </li>
             <li className='hover:text-accents-6 dark:text-accents-2 dark:hover:text-accents-3'>
-              <Link href='#'>Blog</Link>
+              <Link href='#'>{t('blog')}</Link>
             </li>
             <li className='hover:text-accents-6 dark:text-accents-2 dark:hover:text-accents-3'>
-              <Link href='#'>About</Link>
+              <Link href='#'>{t('about')}</Link>
             </li>
           </ul>
 
           <ul className='flex flex-col space-y-3'>
             <li className='hover:text-accents-6 dark:text-accents-2 dark:hover:text-accents-3'>
-              <Link href='#'>Terms of use</Link>
+              <Link href='#'>{t('termsOfUse')}</Link>
             </li>
             <li className='hover:text-accents-6 dark:text-accents-2 dark:hover:text-accents-3'>
-              <Link href='#'>Shipping &amp; Returns</Link>
+              <Link href='#'>{t('shippingReturns')}</Link>
             </li>
             <li className='hover:text-accents-6 dark:text-accents-2 dark:hover:text-accents-3'>
-              <Link href='#'>Privacy Policy</Link>
+              <Link href='#'>{t('privacyPolicy')}</Link>
             </li>
           </ul>
         </div>
 
         <div className='flex items-center space-x-6 md:flex-1 md:justify-end md:items-start'>
           <Link href='https://github.com/soramon0/asenaru'>
-            <a target='_blank' aria-label='project code'>
+            <a target='_blank' aria-label={t('githubAriaLabel').toString()}>
               <IconGithub />
             </a>
           </Link>

@@ -1,14 +1,17 @@
+import { useTranslations } from 'use-intl';
+
 import useTheme from '@/lib/theme';
 import IconMoon from '@/components/icons/Moon';
 import IconSun from '@/components/icons/Sun';
 
 const DarkModeSwitch = () => {
+  const t = useTranslations('Generic');
   const { mode, toggleMode } = useTheme();
 
   return (
     <>
       <label className='sr-only' id='darkModeLabel'>
-        Switch to {mode} mode
+        {t('darkModeLabel', { mode })}
       </label>
       <button
         onClick={toggleMode}
