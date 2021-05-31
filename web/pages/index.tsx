@@ -3,6 +3,7 @@ import { GetStaticPropsContext } from 'next';
 import { useTranslations } from 'use-intl';
 
 import getI18n from '@/lib/getI18n';
+import ProductCard from '@/components/shared/ProductCard';
 
 export default function Home() {
   const t = useTranslations('Index');
@@ -14,10 +15,10 @@ export default function Home() {
         <meta name='description' content={t('meta.description').toString()} />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <section className='h-72'>
-        <h1 className='text-4xl font-semibold text-center text-primary dark:text-primary-2'>
-          Coming Soon!
-        </h1>
+      <section>
+        <div className='md:w-2/3 lg:h-[calc(100vh-80px)]'>
+          <ProductCard />
+        </div>
       </section>
     </>
   );
