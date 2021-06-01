@@ -5,7 +5,7 @@ import DarkModeSwitch from '@/components/shared/DarkModeSwitch'
 
 describe('DarkModeSwitch component', () => {
   it('matches snapshot', () => {
-    const elm = render(<DarkModeSwitch />, {})
-    fireEvent.click(elm)
+    const { container } = render(<DarkModeSwitch />, {})
+    fireEvent.click(container)
   })
 })

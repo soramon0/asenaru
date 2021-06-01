@@ -23,7 +23,7 @@ const Providers: React.FC = ({ children }) => {
   )
 }
 
-const customRender = (ui: JSX.Element, options: any = {}): any =>
+const customRender: typeof render = (ui: JSX.Element, options: any = {}): any =>
   render(ui, { wrapper: Providers, ...options })
 
 // re-export everything
