@@ -5,6 +5,7 @@ type Mode = 'light' | 'dark'
 interface Context {
   mode: Mode
   toggleMode(): void
+  getOppsiteMode(): Mode
 }
 
 const ThemeContext = createContext<Context | undefined>(undefined)
@@ -35,6 +36,9 @@ export const ThemeProvider: React.FC = ({ children }) => {
         const newMode = mode === 'light' ? 'dark' : 'light'
         localStorage.setItem('themeMode', newMode)
         setMode(newMode)
+      },
+      getOppsiteMode() {
+        return mode === 'light' ? 'dark' : 'light'
       },
     }),
     [mode]
