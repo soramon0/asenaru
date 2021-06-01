@@ -17,6 +17,7 @@ const DarkModeSwitch: React.VFC = () => {
         onClick={toggleMode}
         className="p-1 bg-accents-7 rounded-full transition duration-150 focus:outline-none focus:ring-2 focus:ring-secondary dark:focus:ring-primary"
         aria-labelledby="darkModeLabel"
+        data-testid="dark-mode-switch"
       >
         {mode === 'light' ? <IconMoon /> : <IconSun />}
       </button>
