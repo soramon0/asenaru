@@ -1,7 +1,9 @@
+import { IntlMessages } from 'use-intl'
+
 const defaultLangugae = 'en'
 
 type I18nData = {
-  messages: any
+  messages: IntlMessages
   now: number
 }
 

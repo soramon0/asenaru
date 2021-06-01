@@ -1,11 +1,11 @@
 import Head from 'next/head'
-import { GetStaticProps } from 'next'
+import { GetStaticProps, NextPage } from 'next'
 import { useTranslations } from 'use-intl'
 
 import getI18n from '@/lib/getI18n'
 import ProductCard from '@/components/shared/ProductCard'
 
-export default function Home(): JSX.Element {
+const Home: NextPage = () => {
   const t = useTranslations('Index')
 
   return (
@@ -23,6 +23,8 @@ export default function Home(): JSX.Element {
     </>
   )
 }
+
+export default Home
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
