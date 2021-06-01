@@ -4,7 +4,14 @@ import { ThemeProvider } from '@/lib/theme'
 import IntlProvider from '@/lib/intl'
 import getI18n from '@/lib/getI18n'
 
+const useRouter = jest.spyOn(require('next/router'), 'useRouter')
+
 const Providers: React.FC = ({ children }) => {
+  useRouter.mockImplementation(() => ({
+    locale: 'en',
+    locales: ['en', 'fr'],
+  }))
+
   const data = getI18n('index')
 
   return (
