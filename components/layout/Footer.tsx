@@ -6,7 +6,7 @@ import IconGithub from '@/components/icons/Github'
 import DarkModeSwitch from '@/components/shared/DarkModeSwitch'
 import LanguageSelector from '@/components/shared/LanguageSelector'
 
-const Footer = () => {
+const Footer: React.VFC = () => {
   const t = useTranslations('Footer')
   const currentYear = new Date().getFullYear()
 

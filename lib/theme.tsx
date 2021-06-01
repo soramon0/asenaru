@@ -9,7 +9,7 @@ interface Context {
 
 const ThemeContext = createContext<Context | undefined>(undefined)
 
-export default function useTheme() {
+export default function useTheme(): Context {
   const context = useContext(ThemeContext)
 
   if (context === undefined) {

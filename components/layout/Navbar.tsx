@@ -7,7 +7,7 @@ import IconHeart from '@/components/icons/Heart'
 import NavbarLink from '@/components/layout/NavbarLink'
 import NavbarSearch from '@/components/layout/NavbarSearch'
 
-const Navbar = () => {
+const Navbar: React.VFC = () => {
   const t = useTranslations('Navigation')
 
   return (

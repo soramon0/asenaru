@@ -1,6 +1,6 @@
 import { SVGProps, VFC } from 'react'
 
-type Props = SVGProps<SVGSVGElement> & {}
+type Props = SVGProps<SVGSVGElement>
 
 const IconLogo: VFC<Props> = (props) => {
   return (

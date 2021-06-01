@@ -1,11 +1,11 @@
 import Head from 'next/head'
-import { GetStaticPropsContext } from 'next'
+import { GetStaticProps } from 'next'
 import { useTranslations } from 'use-intl'
 
 import getI18n from '@/lib/getI18n'
 import ProductCard from '@/components/shared/ProductCard'
 
-export default function Home() {
+export default function Home(): JSX.Element {
   const t = useTranslations('Index')
 
   return (
@@ -24,7 +24,7 @@ export default function Home() {
   )
 }
 
-export function getStaticProps({ locale }: GetStaticPropsContext) {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
       ...getI18n('index', locale),

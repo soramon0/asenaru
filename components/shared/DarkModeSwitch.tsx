@@ -4,7 +4,7 @@ import useTheme from '@/lib/theme'
 import IconMoon from '@/components/icons/Moon'
 import IconSun from '@/components/icons/Sun'
 
-const DarkModeSwitch = () => {
+const DarkModeSwitch: React.VFC = () => {
   const t = useTranslations('Generic')
   const { mode, toggleMode } = useTheme()
 

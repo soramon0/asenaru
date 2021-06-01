@@ -5,7 +5,7 @@ import Cookies from 'js-cookie'
 import Dropdown from '@/components/shared/Dropdown'
 import IconFlag from '@/components/icons/Flag'
 
-const LanguageSelector = () => {
+const LanguageSelector: React.VFC = () => {
   const t = useTranslations('Languages')
   const { locales, locale, pathname } = useRouter()
 

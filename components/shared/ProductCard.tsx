@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 import IconHeart from '@/components/icons/Heart'
 
-const ProductCard = () => {
+const ProductCard: React.VFC = () => {
   const productNameID = 'product-lightwieght-jacket'
 
   return (

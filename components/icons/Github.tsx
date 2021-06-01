@@ -1,6 +1,6 @@
 import { SVGProps, VFC } from 'react'
 
-type Props = SVGProps<SVGSVGElement> & {}
+type Props = SVGProps<SVGSVGElement>
 
 const IconGithub: VFC<Props> = (props) => {
   return (
