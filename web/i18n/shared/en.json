@@ -1,33 +1,33 @@
 {
-	"Navigation": {
-		"index": "Home",
+  "Navigation": {
+    "index": "Home",
     "all": "All",
-		"clothes": "Clothes",
-		"accessories": "Accessories",
-		"shoes": "Shoes",
-		"searchPlaceholder": "Search for products",
-		"searchLabel": "Search",
-		"cartAriaLabel": "Toggle cart",
-		"wishlist": "Wishlist",
-		"modalAriaLabel": "Open sign in form"
-	},
-	"Footer": {
-		"home": "Home",
-		"careers": "Careers",
-		"blog": "Blog",
-		"about": "About",
-		"shippingReturns": "Shipping & Returns",
-		"termsOfUse": "Terms of use",
-		"privacyPolicy": "Privacy Policy",
-		"githubAriaLabel": "project code"
-	},
-	"Generic": {
-		"darkModeLabel": "Switch to {mode} mode",
-		"closeDropdown": "Close Dropdown"
-	},
-	"Languages": {
-		"english": "English",
-		"french": "French",
-		"selectorLabel": "Change website language"
-	}
+    "clothes": "Clothes",
+    "accessories": "Accessories",
+    "shoes": "Shoes",
+    "searchPlaceholder": "Search for products",
+    "searchLabel": "Search",
+    "cartAriaLabel": "Toggle cart",
+    "wishlist": "Wishlist",
+    "modalAriaLabel": "Open sign in form"
+  },
+  "Footer": {
+    "home": "Home",
+    "careers": "Careers",
+    "blog": "Blog",
+    "about": "About",
+    "shippingReturns": "Shipping & Returns",
+    "termsOfUse": "Terms of use",
+    "privacyPolicy": "Privacy Policy",
+    "githubAriaLabel": "project code"
+  },
+  "Generic": {
+    "darkModeLabel": "Switch to {mode} mode",
+    "closeDropdown": "Close Dropdown"
+  },
+  "Languages": {
+    "english": "English",
+    "french": "French",
+    "selectorLabel": "Change website language"
+  }
 }

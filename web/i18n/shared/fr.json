@@ -1,33 +1,33 @@
 {
-	"Navigation": {
-		"index": "Accueil",
+  "Navigation": {
+    "index": "Accueil",
     "all": "Toute",
-		"clothes": "Vêtements",
-		"accessories": "Accessoires",
-		"shoes": "Chaussures",
-		"searchPlaceholder": "Rechercher des produits",
-		"searchLabel": "Rechercher",
-		"cartAriaLabel": "Basculer le panier",
-		"wishlist": "Liste de souhaits",
-		"modalAriaLabel": "Ouvrir le formulaire de connexion"
-	},
-	"Footer": {
-		"home": "Domicile",
-		"careers": "Carrières",
-		"blog": "Blog",
-		"about": "Environ",
-		"shippingReturns": "Expédition & Retours",
-		"termsOfUse": "Conditions D’utilisation",
-		"privacyPolicy": "Politique de Confidentialité",
-		"githubAriaLabel": "code de projet"
-	},
-	"Generic": {
-		"darkModeLabel": "Passer en mode {mode}",
-		"closeDropdown": "Fermer la liste déroulante"
-	},
-	"Languages": {
-		"english": "Anglais",
-		"french": "Français",
-		"selectorLabel": "Changer la langue du site Web"
-	}
+    "clothes": "Vêtements",
+    "accessories": "Accessoires",
+    "shoes": "Chaussures",
+    "searchPlaceholder": "Rechercher des produits",
+    "searchLabel": "Rechercher",
+    "cartAriaLabel": "Basculer le panier",
+    "wishlist": "Liste de souhaits",
+    "modalAriaLabel": "Ouvrir le formulaire de connexion"
+  },
+  "Footer": {
+    "home": "Domicile",
+    "careers": "Carrières",
+    "blog": "Blog",
+    "about": "Environ",
+    "shippingReturns": "Expédition & Retours",
+    "termsOfUse": "Conditions D’utilisation",
+    "privacyPolicy": "Politique de Confidentialité",
+    "githubAriaLabel": "code de projet"
+  },
+  "Generic": {
+    "darkModeLabel": "Passer en mode {mode}",
+    "closeDropdown": "Fermer la liste déroulante"
+  },
+  "Languages": {
+    "english": "Anglais",
+    "french": "Français",
+    "selectorLabel": "Changer la langue du site Web"
+  }
 }

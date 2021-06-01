@@ -1,8 +1,8 @@
 {
-	"Index": {
-		"meta": {
-			"description": "Une boutique polyvalente"
-		},
-		"title": "Accueil"
-	}
+  "Index": {
+    "meta": {
+      "description": "Une boutique polyvalente"
+    },
+    "title": "Accueil"
+  }
 }

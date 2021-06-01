@@ -4,17 +4,17 @@ import {
   IntlErrorCode,
   IntlMessages,
   NextIntlProvider,
-} from 'next-intl';
-import { useRouter } from 'next/router';
+} from 'next-intl'
+import { useRouter } from 'next/router'
 
 interface Props {
-  messages?: IntlMessages;
-  now: Date;
-  timezone?: string;
+  messages?: IntlMessages
+  now: Date
+  timezone?: string
 }
 
 const IntlProvider: React.FC<Props> = ({ messages, now, children }) => {
-  const { locale } = useRouter();
+  const { locale } = useRouter()
 
   return (
     <NextIntlProvider
@@ -29,10 +29,10 @@ const IntlProvider: React.FC<Props> = ({ messages, now, children }) => {
     >
       {children}
     </NextIntlProvider>
-  );
-};
+  )
+}
 
-export default IntlProvider;
+export default IntlProvider
 
 const formats: Partial<Formats> = {
   dateTime: {
@@ -42,30 +42,30 @@ const formats: Partial<Formats> = {
       year: 'numeric',
     },
   },
-};
+}
 
 function onError(error: IntlError) {
   if (error.code === IntlErrorCode.MISSING_MESSAGE) {
     // Missing translations are expected and should only log an error
-    console.error(error);
+    console.error(error)
   } else {
     // TODO(soramon0): send to report mechanism
-    console.error('[INTL ERROR]:', error);
+    console.error('[INTL ERROR]:', error)
   }
 }
 
 function getMessageFallback({ namespace, key, error }: messageFallbackArgs) {
-  const path = [namespace, key].filter((part) => part != null).join('.');
+  const path = [namespace, key].filter((part) => part != null).join('.')
 
   if (error.code === IntlErrorCode.MISSING_MESSAGE) {
-    return `${path} is not yet translated`;
+    return `${path} is not yet translated`
   } else {
-    return `Dear developer, please fix this message: ${path}`;
+    return `Dear developer, please fix this message: ${path}`
   }
 }
 
 type messageFallbackArgs = {
-  namespace?: string;
-  key: string;
-  error: IntlError;
-};
+  namespace?: string
+  key: string
+  error: IntlError
+}
