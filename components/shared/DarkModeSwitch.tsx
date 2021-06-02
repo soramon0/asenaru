@@ -6,12 +6,12 @@ import IconSun from '@/components/icons/Sun'
 
 const DarkModeSwitch: React.VFC = () => {
   const t = useTranslations('Generic')
-  const { mode, toggleMode } = useTheme()
+  const { mode, toggleMode, getOppsiteMode } = useTheme()
 
   return (
     <>
       <label className="sr-only" id="darkModeLabel">
-        {t('darkModeLabel', { mode })}
+        {t('darkModeLabel', { mode: getOppsiteMode() })}
       </label>
       <button
         onClick={toggleMode}
