@@ -7,21 +7,17 @@ import IconSun from '@/components/icons/Sun'
 const DarkModeSwitch: React.VFC = () => {
   const t = useTranslations('Generic')
   const { mode, toggleMode, getOppsiteMode } = useTheme()
+  const label = t('darkModeLabel', { mode: getOppsiteMode() }).toString()
 
   return (
-    <>
-      <label className="sr-only" id="darkModeLabel">
-        {t('darkModeLabel', { mode: getOppsiteMode() })}
-      </label>
-      <button
-        onClick={toggleMode}
-        className="p-1 bg-accents-7 rounded-full transition duration-150 focus:outline-none focus:ring-2 focus:ring-secondary dark:focus:ring-primary"
-        aria-labelledby="darkModeLabel"
-        data-testid="dark-mode-switch"
-      >
-        {mode === 'light' ? <IconMoon /> : <IconSun />}
-      </button>
-    </>
+    <button
+      onClick={toggleMode}
+      className="p-1 bg-accents-7 rounded-full transition duration-150 focus:outline-none focus:ring-2 focus:ring-secondary dark:focus:ring-primary"
+      aria-label={label}
+      data-testid="dark-mode-switch"
+    >
+      {mode === 'light' ? <IconMoon /> : <IconSun />}
+    </button>
   )
 }
 

@@ -4,7 +4,10 @@ module.exports = {
   roots: ['<rootDir>'],
   testEnvironment: 'jest-environment-jsdom',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json', 'jsx'],
-  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
+  setupFilesAfterEnv: [
+    '@testing-library/jest-dom/extend-expect',
+    'jest-axe/extend-expect',
+  ],
   testPathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|.next)[/\\\\]'],
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(ts|tsx)$'],
   transform: {

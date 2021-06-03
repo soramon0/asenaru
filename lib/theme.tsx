@@ -6,6 +6,7 @@ interface Context {
   mode: Mode
   toggleMode(): void
   getOppsiteMode(): Mode
+  resetMode(): void
 }
 
 const ThemeContext = createContext<Context | undefined>(undefined)
@@ -20,13 +21,21 @@ export default function useTheme(): Context {
   return context
 }
 
-export const ThemeProvider: React.FC = ({ children }) => {
+interface Props {
+  resetMode?: boolean
+}
+
+export const ThemeProvider: React.FC<Props> = ({ children, resetMode }) => {
   const [mode, setMode] = useState<Mode>('light')
 
   useEffect(() => {
     const themeMode = localStorage.getItem('themeMode')
     if (themeMode == 'light' || themeMode == 'dark') setMode(themeMode)
     else setMode('light')
+
+    if (resetMode) {
+      setMode('light')
+    }
   }, [])
 
   const value = useMemo(
@@ -39,6 +48,9 @@ export const ThemeProvider: React.FC = ({ children }) => {
       },
       getOppsiteMode() {
         return mode === 'light' ? 'dark' : 'light'
+      },
+      resetMode() {
+        setMode('light')
       },
     }),
     [mode]
