@@ -24,5 +24,6 @@ module.exports = {
     '@/lib/(.*)$': resolve(__dirname, './lib/$1'),
     '@/types/(.*)$': resolve(__dirname, './types/$1'),
     '@/data/(.*)$': resolve(__dirname, './data/$1'),
+    '@testUtils': resolve(__dirname, './test/testUtils'),
   },
 }

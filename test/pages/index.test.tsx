@@ -1,5 +1,6 @@
 import React from 'react'
-import { render } from '../testUtils'
+import { render } from '@testUtils'
+
 import Home from '../../pages/index'
 import { products } from '@/data/products'
 

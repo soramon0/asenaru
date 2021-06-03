@@ -1,7 +1,7 @@
 import React from 'react'
 import { axe } from 'jest-axe'
 import user from '@testing-library/user-event'
-import { render, cleanup, screen } from '../../testUtils'
+import { render, cleanup, screen } from '@testUtils'
 
 import Page from '@/components/layout/Page'
 import DarkModeSwitch from '@/components/shared/DarkModeSwitch'
