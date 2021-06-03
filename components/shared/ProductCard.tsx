@@ -11,25 +11,38 @@ interface Props {
 const ProductCard: React.VFC<Props> = ({ product, color }) => {
   const productNameID = product.name.replace(' ', '-').toLocaleLowerCase()
 
+  const getBGColor = () => {
+    switch (color) {
+      case 'bg-violet':
+        return 'group-hover:bg-violet'
+      case 'bg-pink':
+        return 'group-hover:bg-pink'
+      case 'bg-secondary-2':
+        return 'group-hover:bg-secondary-2'
+      default:
+        return ''
+    }
+  }
+
   return (
     <article
       className={`w-full h-full relative group overflow-hidden ${color}`}
     >
       <div className="absolute z-10 top-0 left-0">
         <h3
-          className={`px-4 py-3 text-3xl font-bold tracking-wide bg-primary transition duration-500 ease-in-out group-hover:${color} group-hover:text-primary-2 md:px-8 md:py-5 md:text-2xl xl:px-6 xl:text-3xl`}
+          className={`px-4 py-3 text-3xl font-bold tracking-wide bg-primary transition duration-500 ease-in-out ${getBGColor()} group-hover:text-primary-2 md:px-8 md:py-5 md:text-2xl xl:px-6 xl:text-3xl`}
           id={productNameID}
         >
           {product.name}
         </h3>
         <span
-          className={`inline-block px-4 py-3 font-medium tracking-wide text-center bg-primary transition duration-500 ease-in-out group-hover:${color} group-hover:text-primary-2 md:px-6 md:py-4 md:text-md`}
+          className={`inline-block px-4 py-3 font-medium tracking-wide text-center bg-primary transition duration-500 ease-in-out ${getBGColor()} group-hover:text-primary-2 md:px-6 md:py-4 md:text-md`}
         >
           {product.price} USD
         </span>
       </div>
       <button
-        className={`absolute z-10 top-0 right-0 p-2 bg-primary transition duration-500 ease-in-out group-hover:${color}`}
+        className={`absolute z-10 top-0 right-0 p-2 bg-primary transition duration-500 ease-in-out ${getBGColor()}`}
       >
         <IconHeart className="h-7 w-7 group-hover:text-primary-2" />
       </button>

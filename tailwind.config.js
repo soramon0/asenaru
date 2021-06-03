@@ -7,12 +7,7 @@ module.exports = {
       './components/**/*.{js,ts,jsx,tsx}',
     ],
     options: {
-      safelist: [
-        'dark',
-        'group-hover:bg-violet',
-        'group-hover:bg-secondary-2',
-        'group-hover:bg-pink',
-      ],
+      safelist: ['dark'],
     },
   },
   darkMode: 'class', // or 'media' or 'class'
