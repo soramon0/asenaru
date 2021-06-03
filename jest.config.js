@@ -19,5 +19,7 @@ module.exports = {
     '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/test/__mocks__/fileMock.js',
     '@/components/(.*)$': resolve(__dirname, './components/$1'),
     '@/lib/(.*)$': resolve(__dirname, './lib/$1'),
+    '@/types/(.*)$': resolve(__dirname, './types/$1'),
+    '@/data/(.*)$': resolve(__dirname, './data/$1'),
   },
 }
