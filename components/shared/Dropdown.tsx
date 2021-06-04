@@ -92,7 +92,7 @@ const Dropdown: React.VFC<Props> = ({
         const activeElement = document.activeElement
 
         if (activeElement?.parentElement?.id == 'selectorMenu') {
-          const text = activeElement.getAttribute('data-item')
+          const text = activeElement.getAttribute('data-value')
           if (!text) return
 
           select(text)
