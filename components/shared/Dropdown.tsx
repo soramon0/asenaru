@@ -101,7 +101,7 @@ const Dropdown: React.VFC<Props> = ({
         return
       }
 
-      const text = item.dataset.locale
+      const text = item.dataset.value
       if (!text) return
 
       select(text)
@@ -168,7 +168,7 @@ const Dropdown: React.VFC<Props> = ({
               tabIndex={0}
               onClick={() => select(item.value)}
               ref={(el) => (itemRef.current[i] = el)}
-              data-item={item.value}
+              data-value={item.value}
             >
               {item.label}
             </li>

@@ -1,20 +1,8 @@
 import { axe } from 'jest-axe'
 import user from '@testing-library/user-event'
-import { render, screen, fireEvent } from '@testUtils'
+import { render, screen, pressKey } from '@testUtils'
 
 import Dropdown from '@/components/shared/Dropdown'
-
-const onSelect = jest.fn()
-const dropdown = (
-  <Dropdown
-    selectorLabel="Options"
-    onSelect={onSelect}
-    items={[
-      { label: 'Option 1', value: 'op1' },
-      { label: 'Option 2', value: 'op1' },
-    ]}
-  />
-)
 
 afterEach(() => {
   onSelect.mockReset()
@@ -30,11 +18,7 @@ describe('Dropdown component', () => {
   it('toggles dropdown', () => {
     render(dropdown)
 
-    const button = screen.getByLabelText(/options/i)
-    user.click(document.body)
-    expect(screen.queryByRole('listbox')).not.toBeInTheDocument()
-    user.click(button)
-    expect(screen.queryByRole('listbox')).toBeInTheDocument()
+    const { button } = openDropdown()
     user.click(button)
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument()
   })
@@ -42,27 +26,20 @@ describe('Dropdown component', () => {
   it('closes dropdown once the close button is clicked', () => {
     render(dropdown)
 
-    const button = screen.getByLabelText(/options/i)
-    expect(screen.queryByRole('listbox')).not.toBeInTheDocument()
     expect(screen.queryByTestId('selectorCloser')).not.toBeInTheDocument()
-    user.click(button)
-    expect(screen.queryByRole('listbox')).toBeInTheDocument()
+    const { dropdownList } = openDropdown()
 
     const closeBtn = screen.getByTestId('selectorCloser')
     user.click(closeBtn)
-    expect(screen.queryByRole('listbox')).not.toBeInTheDocument()
-    expect(screen.queryByTestId('selectorCloser')).not.toBeInTheDocument()
+    expect(dropdownList).not.toBeInTheDocument()
+    expect(closeBtn).not.toBeInTheDocument()
   })
 
   it('closes dropdown when clicking outside the dropdown', () => {
     render(dropdown)
 
-    const button = screen.getByLabelText(/options/i)
-    expect(screen.queryByRole('listbox')).not.toBeInTheDocument()
-    user.click(button)
+    const { dropdownList } = openDropdown()
 
-    const dropdownList = screen.getByRole('listbox')
-    expect(dropdownList).toBeInTheDocument()
     user.click(dropdownList)
     expect(dropdownList).toBeInTheDocument()
     user.click(document.body)
@@ -72,26 +49,62 @@ describe('Dropdown component', () => {
   it('closes dropdown when escape is pressed', () => {
     render(dropdown)
 
-    const button = screen.getByLabelText(/options/i)
-    expect(screen.queryByRole('listbox')).not.toBeInTheDocument()
-    user.click(button)
-    expect(screen.queryByRole('listbox')).toBeInTheDocument()
-    fireEvent.keyDown(document.body, { key: 'Escape', code: 'Escape' })
-    expect(screen.queryByRole('listbox')).not.toBeInTheDocument()
+    const { dropdownList } = openDropdown()
+    pressKey('Escape')
+    expect(dropdownList).not.toBeInTheDocument()
   })
 
   it('closes dropdown when an item is clicked', () => {
     render(dropdown)
 
-    const button = screen.getByLabelText(/options/i)
-    expect(screen.queryByRole('listbox')).not.toBeInTheDocument()
-    user.click(button)
-    expect(screen.queryByRole('listbox')).toBeInTheDocument()
-
+    const { dropdownList } = openDropdown()
     const items = screen.getAllByRole('option')
     user.click(items[0])
-    expect(screen.queryByRole('listbox')).not.toBeInTheDocument()
+    expect(dropdownList).not.toBeInTheDocument()
+    expect(onSelect).toHaveBeenCalledTimes(1)
+    expect(onSelect).toHaveBeenCalledWith('op1')
+  })
+
+  it('traverses list item with down arrow', () => {
+    render(dropdown)
+
+    const { dropdownList } = openDropdown()
+    pressKey('ArrowDown', 2)
+    pressKey('Enter')
+    expect(dropdownList).not.toBeInTheDocument()
+    expect(onSelect).toHaveBeenCalledTimes(1)
+    expect(onSelect).toHaveBeenCalledWith('op2')
+  })
+
+  it('traverses list item with up arrow', () => {
+    render(dropdown)
+
+    const { dropdownList } = openDropdown()
+    pressKey('ArrowUp', 2)
+    pressKey('Enter')
+    expect(dropdownList).not.toBeInTheDocument()
     expect(onSelect).toHaveBeenCalledTimes(1)
     expect(onSelect).toHaveBeenCalledWith('op1')
   })
 })
+
+const onSelect = jest.fn()
+const dropdown = (
+  <Dropdown
+    selectorLabel="Options"
+    onSelect={onSelect}
+    items={[
+      { label: 'Option 1', value: 'op1' },
+      { label: 'Option 2', value: 'op2' },
+    ]}
+  />
+)
+
+function openDropdown() {
+  const button = screen.getByLabelText(/options/i) as HTMLButtonElement
+  expect(screen.queryByRole('listbox')).not.toBeInTheDocument()
+  user.click(button)
+  expect(screen.getByRole('listbox')).toBeInTheDocument()
+  const dropdownList = screen.getByRole('listbox') as HTMLUListElement
+  return { button, dropdownList }
+}
