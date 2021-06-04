@@ -10,7 +10,7 @@ type Item = { value: string; label: string }
 type ItemRef = { [key: number]: HTMLLIElement | null }
 interface Props {
   items: Item[]
-  label: string | React.ReactNode
+  label?: string | React.ReactNode
   icon?: React.ReactNode
   selectorLabel: string
   onSelect: (item: string) => void
@@ -27,6 +27,7 @@ const Dropdown: React.VFC<Props> = ({
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [selectedItem, setSelectedItem] = useState(-1)
   const itemRef = useRef<ItemRef>({})
+  const listRef = useRef<HTMLUListElement | null>()
   const escapePress = useKeyPress('Escape')
   const downPress = useKeyPress('ArrowDown', true)
   const upPress = useKeyPress('ArrowUp', true)
@@ -91,7 +92,7 @@ const Dropdown: React.VFC<Props> = ({
         const activeElement = document.activeElement
 
         if (activeElement?.parentElement?.id == 'selectorMenu') {
-          const text = activeElement.getAttribute('data-locale')
+          const text = activeElement.getAttribute('data-item')
           if (!text) return
 
           select(text)
@@ -108,52 +109,54 @@ const Dropdown: React.VFC<Props> = ({
   }, [enterPress, spacePress])
 
   useEffect(() => {
-    function onOutsideClickCloseDropdown() {
-      // TODO(soramon0): dont close if we click inside the dropdown
-      if (dropdownOpen) {
-        toggleDropDown()
+    function onOutsideClickCloseDropdown({ target }: MouseEvent) {
+      const isOutsideDropdown =
+        listRef.current !== target && !listRef.current?.contains(target as Node)
+      if (dropdownOpen && isOutsideDropdown) {
+        if (dropdownOpen) {
+          toggleDropDown()
+        }
       }
     }
 
     if (dropdownOpen) {
-      document.addEventListener('click', onOutsideClickCloseDropdown)
+      window.addEventListener('click', onOutsideClickCloseDropdown)
     }
 
     return () => {
-      document.removeEventListener('click', onOutsideClickCloseDropdown)
+      window.removeEventListener('click', onOutsideClickCloseDropdown)
     }
   }, [dropdownOpen])
 
   return (
     <div className="relative text-left rounded-md">
-      <label className="sr-only" id="selectorLabel">
-        {selectorLabel}
-      </label>
       <button
         type="button"
         className="w-full px-4 py-2 flex items-center justify-center space-x-3 text-sm font-medium rounded-md border border-accents-6 shadow-sm bg-primary text-accents-9 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 dark:bg-accents-7"
         id="selector"
         aria-haspopup="listbox"
-        aria-labelledby="selectorLabel"
+        aria-label={selectorLabel}
         onClick={toggleDropDown}
       >
-        <span>{label}</span>
+        {label && <span>{label}</span>}
         {icon && icon}
         {!icon && dropdownOpen ? <IconChevronDown /> : <IconChevronUp />}
       </button>
 
       {dropdownOpen && (
         <ul
+          ref={(el) => (listRef.current = el)}
           id="selectorMenu"
-          className="w-full py-1 h-full fixed mt-28 inset-0 lowercase shadow-magical border border-accents-2 bg-primary md:w-40 md:h-auto md:mt-3 md:absolute md:inset-auto md:right-0 dark:bg-accents-8 dark:border-accents-5"
+          className="w-full py-1 h-full fixed mt-28 inset-0 z-20 lowercase shadow-magical border border-accents-2 bg-primary md:w-40 md:h-auto md:mt-3 md:absolute md:inset-auto md:right-0 dark:bg-accents-8 dark:border-accents-5"
           role="listbox"
           aria-expanded={dropdownOpen}
         >
           <li className="mt-1 px-4 py-2 text-right md:hidden">
-            <label className="sr-only" id="selectorCloser">
-              {t('closeDropdown')}
-            </label>
-            <button onClick={toggleDropDown} aria-labelledby="selectorCloser">
+            <button
+              onClick={toggleDropDown}
+              aria-label={t('closeDropdown').toString()}
+              data-testid="selectorCloser"
+            >
               <IconClose />
             </button>
           </li>
@@ -165,7 +168,7 @@ const Dropdown: React.VFC<Props> = ({
               tabIndex={0}
               onClick={() => select(item.value)}
               ref={(el) => (itemRef.current[i] = el)}
-              data-locale={item.value}
+              data-item={item.value}
             >
               {item.label}
             </li>
