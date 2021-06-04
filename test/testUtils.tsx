@@ -1,5 +1,10 @@
 import { JSXElementConstructor, ReactElement } from 'react'
-import { render, RenderOptions, RenderResult } from '@testing-library/react'
+import {
+  render,
+  fireEvent,
+  RenderOptions,
+  RenderResult,
+} from '@testing-library/react'
 
 import { ThemeProvider } from '@/lib/theme'
 import IntlProvider from '@/lib/intl'
@@ -39,6 +44,13 @@ const customRender: CustomRender = (ui, options = {}) => {
     wrapper: (props) => <Providers {...props} {...options.wrapperProps} />,
     ...options,
   })
+}
+
+export function pressKey(key: string, times = 1): void {
+  for (let i = 0; i < times; i++) {
+    fireEvent.keyDown(document.body, { key })
+    fireEvent.keyUp(document.body, { key })
+  }
 }
 
 // re-export everything
