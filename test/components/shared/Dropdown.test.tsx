@@ -18,9 +18,9 @@ describe('Dropdown component', () => {
   it('toggles dropdown', () => {
     render(dropdown)
 
-    const { button } = openDropdown()
+    const { button, dropdownList } = openDropdown()
     user.click(button)
-    expect(screen.queryByRole('listbox')).not.toBeInTheDocument()
+    expect(dropdownList).not.toBeInTheDocument()
   })
 
   it('closes dropdown once the close button is clicked', () => {
@@ -39,7 +39,6 @@ describe('Dropdown component', () => {
     render(dropdown)
 
     const { dropdownList } = openDropdown()
-
     user.click(dropdownList)
     expect(dropdownList).toBeInTheDocument()
     user.click(document.body)
@@ -52,6 +51,7 @@ describe('Dropdown component', () => {
     const { dropdownList } = openDropdown()
     pressKey('Escape')
     expect(dropdownList).not.toBeInTheDocument()
+    expect(onSelect).not.toHaveBeenCalled()
   })
 
   it('closes dropdown when an item is clicked', () => {
@@ -61,30 +61,40 @@ describe('Dropdown component', () => {
     const items = screen.getAllByRole('option')
     user.click(items[0])
     expect(dropdownList).not.toBeInTheDocument()
-    expect(onSelect).toHaveBeenCalledTimes(1)
-    expect(onSelect).toHaveBeenCalledWith('op1')
+    isCalledTimesWith(1, 'op1')
   })
 
-  it('traverses list item with down arrow', () => {
+  it('moves with down arrow and selects with Enter', () => {
+    render(dropdown)
+
+    const { dropdownList } = openDropdown()
+    pressKey('ArrowDown', 1)
+    selectWith('Enter', dropdownList)
+    isCalledTimesWith(1, 'op1')
+  })
+
+  it('moves with up arrow and selects with Spacebar', () => {
     render(dropdown)
 
     const { dropdownList } = openDropdown()
     pressKey('ArrowDown', 2)
-    pressKey('Enter')
-    expect(dropdownList).not.toBeInTheDocument()
-    expect(onSelect).toHaveBeenCalledTimes(1)
-    expect(onSelect).toHaveBeenCalledWith('op2')
+    pressKey('ArrowUp', 1)
+    selectWith(' ', dropdownList)
+    isCalledTimesWith(1, 'op1')
   })
 
-  it('traverses list item with up arrow', () => {
+  it('moves a full circle using arrows and selects with Enter/Spacebar', () => {
     render(dropdown)
 
     const { dropdownList } = openDropdown()
-    pressKey('ArrowUp', 2)
-    pressKey('Enter')
-    expect(dropdownList).not.toBeInTheDocument()
-    expect(onSelect).toHaveBeenCalledTimes(1)
-    expect(onSelect).toHaveBeenCalledWith('op1')
+    pressKey('ArrowDown', 3)
+    selectWith(' ', dropdownList)
+    isCalledTimesWith(1, 'op1')
+
+    openDropdown()
+    pressKey('ArrowUp', 3)
+    selectWith('Enter', dropdownList)
+    isCalledTimesWith(2, 'op2')
   })
 })
 
@@ -107,4 +117,14 @@ function openDropdown() {
   expect(screen.getByRole('listbox')).toBeInTheDocument()
   const dropdownList = screen.getByRole('listbox') as HTMLUListElement
   return { button, dropdownList }
+}
+
+function selectWith(key: 'Enter' | ' ', el: HTMLElement) {
+  pressKey(key)
+  expect(el).not.toBeInTheDocument()
+}
+
+function isCalledTimesWith(times: number, arg: any) {
+  expect(onSelect).toHaveBeenCalledTimes(times)
+  expect(onSelect).toHaveBeenCalledWith(arg)
 }
