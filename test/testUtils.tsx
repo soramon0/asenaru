@@ -15,15 +15,18 @@ const useRouter = jest.spyOn(require('next/router'), 'useRouter')
 interface Props {
   resetThemeMode?: boolean
   pageLocale?: string
+  locale?: 'en' | 'fr'
 }
 
 const Providers: React.FC<Props> = (props) => {
+  const locale = props.locale || 'en'
   useRouter.mockImplementation(() => ({
-    locale: 'en',
+    locale,
     locales: ['en', 'fr'],
+    pathname: '/',
     prefetch: () => new Promise(() => ({})),
   }))
-  const data = getI18n(props.pageLocale || 'index')
+  const data = getI18n(props.pageLocale || 'index', locale)
 
   return (
     <ThemeProvider resetMode={props.resetThemeMode}>

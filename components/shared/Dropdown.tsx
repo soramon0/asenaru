@@ -27,7 +27,7 @@ const Dropdown: React.VFC<Props> = ({
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [selectedItem, setSelectedItem] = useState(-1)
   const itemRef = useRef<ItemRef>({})
-  const listRef = useRef<HTMLUListElement | null>()
+  const selectorRef = useRef<HTMLUListElement | null>()
   const escapePress = useKeyPress('Escape')
   const downPress = useKeyPress('ArrowDown', true)
   const upPress = useKeyPress('ArrowUp', true)
@@ -111,7 +111,8 @@ const Dropdown: React.VFC<Props> = ({
   useEffect(() => {
     function onOutsideClickCloseDropdown({ target }: MouseEvent) {
       const isOutsideDropdown =
-        listRef.current !== target && !listRef.current?.contains(target as Node)
+        selectorRef.current !== target &&
+        !selectorRef.current?.contains(target as Node)
       if (dropdownOpen && isOutsideDropdown) {
         if (dropdownOpen) {
           toggleDropDown()
@@ -133,7 +134,7 @@ const Dropdown: React.VFC<Props> = ({
       <button
         type="button"
         className="w-full px-4 py-2 flex items-center justify-center space-x-3 text-sm font-medium rounded-md border border-accents-6 shadow-sm bg-primary text-accents-9 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 dark:bg-accents-7"
-        id="selector"
+        data-testid="selector"
         aria-haspopup="listbox"
         aria-label={selectorLabel}
         onClick={toggleDropDown}
@@ -145,7 +146,7 @@ const Dropdown: React.VFC<Props> = ({
 
       {dropdownOpen && (
         <ul
-          ref={(el) => (listRef.current = el)}
+          ref={(el) => (selectorRef.current = el)}
           id="selectorMenu"
           className="w-full py-1 h-full fixed mt-28 inset-0 z-20 lowercase shadow-magical border border-accents-2 bg-primary md:w-40 md:h-auto md:mt-3 md:absolute md:inset-auto md:right-0 dark:bg-accents-8 dark:border-accents-5"
           role="listbox"

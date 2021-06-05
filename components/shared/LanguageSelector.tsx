@@ -21,7 +21,7 @@ const LanguageSelector: React.VFC = () => {
     }
 
     Cookies.set('NEXT_LOCALE', language)
-    window.location.href = pathname
+    window.location.assign(pathname)
   }
 
   return (
