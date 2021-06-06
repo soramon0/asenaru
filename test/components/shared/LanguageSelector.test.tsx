@@ -1,9 +1,9 @@
 import { axe } from 'jest-axe'
 import user from '@testing-library/user-event'
 import { render, screen } from '@testUtils'
+import Cookies from 'js-cookie'
 
 import LanguageSelector from '@/components/shared/LanguageSelector'
-import Cookies from 'js-cookie'
 
 describe('LanguageSelector component', () => {
   it('is accessible', async () => {
@@ -11,9 +11,9 @@ describe('LanguageSelector component', () => {
     const results = await axe(container)
     expect(results).toHaveNoViolations()
 
-    const dropdown = screen.getByLabelText(/change website language/i)
-    const img = dropdown.querySelector('img')
-    expect(dropdown).toBeInTheDocument()
+    const selector = screen.getByLabelText(/change website language/i)
+    const img = selector.querySelector('img')
+    expect(selector).toBeInTheDocument()
     expect(img).toBeInTheDocument()
     expect(img?.alt).toBe('en')
   })
@@ -70,6 +70,8 @@ describe('LanguageSelector component', () => {
     const options = screen.getAllByRole('option')
     user.click(options[1])
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument()
+    expect(mockCookie).toHaveBeenCalledTimes(1)
+    expect(mockCookie).toHaveBeenCalledWith('NEXT_LOCALE', 'fr')
     expect(window.location.assign).toHaveBeenCalledTimes(1)
     expect(window.location.assign).toHaveBeenCalledWith('/')
 
@@ -81,10 +83,15 @@ describe('LanguageSelector component', () => {
     render(<LanguageSelector />, { wrapperProps: { locale } })
 
     openDropDown()
-    const dropdown = screen.getByLabelText(/changer la langue du site web/i)
-    expect(dropdown).toBeInTheDocument()
+    const selector = screen.getByLabelText(/changer la langue du site web/i)
+    const img = selector.querySelector('img')
+    expect(selector).toBeInTheDocument()
+    expect(img).toBeInTheDocument()
+    expect(img?.alt).toBe('fr')
   })
 })
+
+const mockCookie = jest.spyOn(require('js-cookie'), 'set')
 
 beforeAll(() => {
   Object.defineProperty(window, 'location', {
