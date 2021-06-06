@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useTranslations } from 'use-intl'
 
 import IconHeart from '@/components/icons/Heart'
 import { Product } from '@/types/models'
@@ -9,6 +10,7 @@ interface Props {
 }
 
 const ProductCard: React.VFC<Props> = ({ product, color }) => {
+  const t = useTranslations('Product')
   const productNameID = product.name.replace(' ', '-').toLocaleLowerCase()
 
   const getBGColor = () => {
@@ -43,6 +45,7 @@ const ProductCard: React.VFC<Props> = ({ product, color }) => {
       </div>
       <button
         className={`absolute z-10 top-0 right-0 p-2 bg-primary transition duration-500 ease-in-out ${getBGColor()}`}
+        aria-label={t('wishlistAddLabel').toString()}
       >
         <IconHeart className="h-7 w-7 group-hover:text-primary-2" />
       </button>
@@ -54,9 +57,9 @@ const ProductCard: React.VFC<Props> = ({ product, color }) => {
         <div className="h-full w-full transition-transform delay-150 duration-700 ease-in-out transform group-hover:scale-110 group-focus:scale-110">
           <Image
             src={product.image}
+            alt={product.name}
             width={1280}
             height={1280}
-            alt="black lightwieght jacket"
           />
         </div>
       </a>

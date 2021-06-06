@@ -29,5 +29,8 @@
     "english": "English",
     "french": "French",
     "selectorLabel": "Change website language"
+  },
+  "Product": {
+    "wishlistAddLabel": "Add to wishlist"
   }
 }
