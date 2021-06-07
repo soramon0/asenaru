@@ -56,6 +56,15 @@ module.exports = {
       backgroundImage: (_) => ({
         'pattern-product': "url('/bg-product.svg')",
       }),
+      keyframes: {
+        marquee: {
+          '0%': { left: '0%' },
+          '100%': { left: '-100%' },
+        },
+      },
+      animation: {
+        marquee: 'marquee 25s linear infinite',
+      },
     },
   },
   variants: {

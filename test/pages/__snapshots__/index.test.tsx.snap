@@ -190,5 +190,141 @@ exports[`Home page matches snapshot 1`] = `
       </div>
     </div>
   </section>
+  <section
+    class="h-80 overflow-hidden relative bg-secondary"
+  >
+    <div
+      class="w-[200%] h-full flex absolute left-0 "
+    >
+      <div
+        class="w-1/2 flex justify-around"
+      >
+        <a
+          class="h-full w-80 relative"
+          href="#"
+        >
+          <div
+            class="w-full -ml-4 -mt-4 text-right absolute top-1/2 z-10"
+          >
+            <h3
+              class="inline-block p-2 text-2xl font-bold tracking-wide text-accents-1 bg-secondary"
+            >
+              Black Hat
+            </h3>
+          </div>
+          <img
+            alt="Black Hat-1"
+            height="320"
+            src="/hat.png"
+            width="320"
+          />
+        </a>
+        <a
+          class="h-full w-80 relative"
+          href="#"
+        >
+          <div
+            class="w-full -ml-4 -mt-4 text-right absolute top-1/2 z-10"
+          >
+            <h3
+              class="inline-block p-2 text-2xl font-bold tracking-wide text-accents-1 bg-secondary"
+            >
+              Lightwieght Jacket
+            </h3>
+          </div>
+          <img
+            alt="Lightwieght Jacket-2"
+            height="320"
+            src="/jacket.png"
+            width="320"
+          />
+        </a>
+        <a
+          class="h-full w-80 relative"
+          href="#"
+        >
+          <div
+            class="w-full -ml-4 -mt-4 text-right absolute top-1/2 z-10"
+          >
+            <h3
+              class="inline-block p-2 text-2xl font-bold tracking-wide text-accents-1 bg-secondary"
+            >
+              T-Shirt
+            </h3>
+          </div>
+          <img
+            alt="T-Shirt-3"
+            height="320"
+            src="/t-shirt.png"
+            width="320"
+          />
+        </a>
+      </div>
+      <div
+        class="w-1/2 flex justify-around"
+      >
+        <a
+          class="h-full w-80 relative"
+          href="#"
+        >
+          <div
+            class="w-full -ml-4 -mt-4 text-right absolute top-1/2 z-10"
+          >
+            <h3
+              class="inline-block p-2 text-2xl font-bold tracking-wide text-accents-1 bg-secondary"
+            >
+              Black Hat
+            </h3>
+          </div>
+          <img
+            alt="Black Hat-1"
+            height="320"
+            src="/hat.png"
+            width="320"
+          />
+        </a>
+        <a
+          class="h-full w-80 relative"
+          href="#"
+        >
+          <div
+            class="w-full -ml-4 -mt-4 text-right absolute top-1/2 z-10"
+          >
+            <h3
+              class="inline-block p-2 text-2xl font-bold tracking-wide text-accents-1 bg-secondary"
+            >
+              Lightwieght Jacket
+            </h3>
+          </div>
+          <img
+            alt="Lightwieght Jacket-2"
+            height="320"
+            src="/jacket.png"
+            width="320"
+          />
+        </a>
+        <a
+          class="h-full w-80 relative"
+          href="#"
+        >
+          <div
+            class="w-full -ml-4 -mt-4 text-right absolute top-1/2 z-10"
+          >
+            <h3
+              class="inline-block p-2 text-2xl font-bold tracking-wide text-accents-1 bg-secondary"
+            >
+              T-Shirt
+            </h3>
+          </div>
+          <img
+            alt="T-Shirt-3"
+            height="320"
+            src="/t-shirt.png"
+            width="320"
+          />
+        </a>
+      </div>
+    </div>
+  </section>
 </DocumentFragment>
 `;

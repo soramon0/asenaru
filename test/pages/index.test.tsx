@@ -24,6 +24,14 @@ beforeAll(() => {
     writable: true,
     value: (props: ImageProps) => <img {...props} />,
   })
+
+  Object.defineProperty(window, 'IntersectionObserver', {
+    writable: true,
+    value: jest.fn().mockImplementation(() => ({
+      observe: () => null,
+      disconnect: () => null,
+    })),
+  })
 })
 
 afterAll(() => {
