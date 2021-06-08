@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { GetStaticProps, NextPage } from 'next'
 import { useTranslations } from 'use-intl'
 
@@ -44,19 +43,7 @@ const Home: NextPage<Props> = ({ products }) => {
 
       <Marquee background="bg-secondary">
         {products.map((product) => (
-          <a href="#" key={product.id} className="h-full w-80 relative">
-            <div className="w-full -ml-4 -mt-4 text-right absolute top-1/2 z-10">
-              <h3 className="inline-block p-2 text-2xl font-bold tracking-wide text-accents-1 bg-secondary">
-                {product.name}
-              </h3>
-            </div>
-            <Image
-              src={product.image}
-              width="320"
-              height="320"
-              alt={product.name + '-' + product.id}
-            />
-          </a>
+          <ProductCard key={product.id} product={product} variant="slim" />
         ))}
       </Marquee>
     </>

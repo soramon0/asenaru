@@ -6,10 +6,11 @@ import { Product } from '@/types/models'
 
 interface Props {
   product: Product
-  color: 'bg-violet' | 'bg-secondary-2' | 'bg-pink'
+  color?: 'bg-violet' | 'bg-secondary-2' | 'bg-pink'
+  variant?: 'slim' | 'simple'
 }
 
-const ProductCard: React.VFC<Props> = ({ product, color }) => {
+const ProductCard: React.VFC<Props> = ({ product, color, variant }) => {
   const t = useTranslations('Product')
   const productNameID = product.name.replace(' ', '-').toLocaleLowerCase()
 
@@ -24,6 +25,24 @@ const ProductCard: React.VFC<Props> = ({ product, color }) => {
       default:
         return ''
     }
+  }
+
+  if (variant === 'slim') {
+    return (
+      <a href="#" key={product.id} className="h-full w-full relative md:w-80">
+        <div className="w-full -ml-4 -mt-4 text-right absolute top-1/2 z-10">
+          <h3 className="inline-block p-2 text-2xl font-bold tracking-wide text-accents-1 bg-secondary">
+            {product.name}
+          </h3>
+        </div>
+        <Image
+          src={product.image}
+          width="320"
+          height="320"
+          alt={product.name + '-' + product.id}
+        />
+      </a>
+    )
   }
 
   return (
