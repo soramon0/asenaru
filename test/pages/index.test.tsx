@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { ImgHTMLAttributes } from 'react'
 import { axe } from 'jest-axe'
 import { render } from '@testUtils'
-import { ImageProps } from 'next/image'
 
 import { products } from '@/data/products'
 import Home from '@/pages/index'
@@ -22,7 +21,7 @@ describe('Home page', () => {
 beforeAll(() => {
   Object.defineProperty(require('next/image'), 'default', {
     writable: true,
-    value: (props: ImageProps) => <img {...props} />,
+    value: (props: ImgHTMLAttributes<HTMLImageElement>) => <img {...props} />,
   })
 
   Object.defineProperty(window, 'IntersectionObserver', {
