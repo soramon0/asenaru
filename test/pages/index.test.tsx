@@ -21,7 +21,10 @@ describe('Home page', () => {
 beforeAll(() => {
   Object.defineProperty(require('next/image'), 'default', {
     writable: true,
-    value: (props: ImgHTMLAttributes<HTMLImageElement>) => <img {...props} />,
+    value: (props: ImgHTMLAttributes<HTMLImageElement>) => (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img {...props} alt={props.alt} />
+    ),
   })
 
   Object.defineProperty(window, 'IntersectionObserver', {

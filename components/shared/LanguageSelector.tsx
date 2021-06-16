@@ -27,7 +27,7 @@ const LanguageSelector: React.VFC = () => {
   return (
     <Dropdown
       items={languages || []}
-      label={<IconFlag flag={locale || 'en'} />}
+      icon={<IconFlag flag={locale || 'en'} />}
       onSelect={selectLanguage}
       selectorLabel={t('selectorLabel').toString()}
     />

@@ -1,3 +1,4 @@
+/* eslint react-hooks/exhaustive-deps: off */
 import { useEffect, useRef, useState } from 'react'
 
 import IconChevronDown from '@/components/icons/ChevronDown'

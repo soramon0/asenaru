@@ -36,7 +36,7 @@ export const ThemeProvider: React.FC<Props> = ({ children, resetMode }) => {
     if (resetMode) {
       setMode('light')
     }
-  }, [])
+  }, [resetMode])
 
   const value = useMemo(
     () => ({

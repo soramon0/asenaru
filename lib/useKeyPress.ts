@@ -27,7 +27,7 @@ function useKeyPress(targetKey: string, preventDef = false): boolean {
       window.removeEventListener('keydown', downHandler)
       window.removeEventListener('keyup', upHandler)
     }
-  }, [targetKey])
+  }, [targetKey, preventDef])
 
   return keyPressed
 }

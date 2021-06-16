@@ -40,6 +40,8 @@ function useIntersectionObserver(
     return () => {
       cleanOb()
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [element])
 
   return isIntersecting
